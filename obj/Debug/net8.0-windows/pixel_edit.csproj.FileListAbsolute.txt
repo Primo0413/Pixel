@@ -32,3 +32,4 @@ D:\JYang\Prj\pixel_edit\obj\Debug\net8.0-windows\refint\pixel_edit.dll
 D:\JYang\Prj\pixel_edit\obj\Debug\net8.0-windows\pixel_edit.pdb
 D:\JYang\Prj\pixel_edit\obj\Debug\net8.0-windows\pixel_edit.genruntimeconfig.cache
 D:\JYang\Prj\pixel_edit\obj\Debug\net8.0-windows\ref\pixel_edit.dll
+D:\JYang\Prj\pixel_edit\obj\Debug\net8.0-windows\pixel_edit.sourcelink.json

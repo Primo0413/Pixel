@@ -14,4 +14,8 @@
     <PackageReference Include="MaterialDesignColors" Version="5.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="Assets\icon.png" />
+  </ItemGroup>
+
 </Project>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Pixel Edit"
+        Icon="pack://application:,,,/Assets/icon.png"
         Height="900"
         Width="1300"
         WindowStartupLocation="CenterScreen"
