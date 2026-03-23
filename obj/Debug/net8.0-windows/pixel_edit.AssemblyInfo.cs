@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pixel_edit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+888e2e87c4e893c217ce4ac583541ff159579b16")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57343d20f014f76e51a9127365bb572b9005d4dd")]
 [assembly: System.Reflection.AssemblyProductAttribute("pixel_edit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pixel_edit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

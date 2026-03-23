@@ -3,10 +3,115 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:pixel_edit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Pixel Edit"
+        Height="900"
+        Width="1300"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource AppBackgroundBrush}"
+        TextElement.FontSize="14">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding SidebarWidth}" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
+        <Border Grid.Column="0"
+                Background="{StaticResource SidebarBackgroundBrush}"
+                BorderBrush="{StaticResource SidebarBorderBrush}"
+                BorderThickness="0,0,1,0"
+                Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="12" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0"
+                        Style="{StaticResource SidebarActionButtonStyle}"
+                        Command="{Binding ToggleSidebarCommand}"
+                        ToolTip="收缩/展开侧边栏"
+                        Content="≡" />
+
+                <Button Grid.Row="2"
+                        Style="{StaticResource SidebarNavButtonStyle}"
+                        Tag="{Binding ConvertNavTag}"
+                        Command="{Binding GoConvertImageCommand}"
+                        ToolTip="加载图片并转换">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="IMG" FontSize="13" FontWeight="SemiBold" />
+                        <TextBlock Text="加载图片并转换"
+                                   Margin="8,0,0,0"
+                                   Visibility="{Binding IsSidebarExpanded, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="3"
+                        Style="{StaticResource SidebarNavButtonStyle}"
+                        Tag="{Binding BlankNavTag}"
+                        Command="{Binding GoBlankEditorCommand}"
+                        ToolTip="创建白板绘制">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="PIX" FontSize="13" FontWeight="SemiBold" />
+                        <TextBlock Text="创建白板绘制"
+                                   Margin="8,0,0,0"
+                                   Visibility="{Binding IsSidebarExpanded, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="4"
+                        Style="{StaticResource SidebarNavButtonStyle}"
+                        Tag="{Binding ComposeNavTag}"
+                        Command="{Binding GoComposeCommand}"
+                        ToolTip="加载并拼接/堆叠">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="CMP" FontSize="13" FontWeight="SemiBold" />
+                        <TextBlock Text="加载并拼接/堆叠"
+                                   Margin="8,0,0,0"
+                                   Visibility="{Binding IsSidebarExpanded, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="6"
+                        Style="{StaticResource SidebarNavButtonStyle}"
+                        Tag="{Binding HomeNavTag}"
+                        Command="{Binding GoHomeCommand}"
+                        ToolTip="回到首页">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="HOME" FontSize="13" FontWeight="SemiBold" />
+                        <TextBlock Text="首页"
+                                   Margin="8,0,0,0"
+                                   Visibility="{Binding IsSidebarExpanded, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Background="{StaticResource HeaderBackgroundBrush}"
+                    CornerRadius="14"
+                    Padding="18"
+                    Margin="0,0,0,16">
+                <TextBlock Text="Pixel Edit"
+                           Style="{StaticResource MaterialDesignHeadlineSmallTextBlock}" />
+            </Border>
+
+            <Border Grid.Row="1"
+                    Background="{StaticResource ContentBackgroundBrush}"
+                    CornerRadius="16"
+                    Padding="18">
+                <ContentControl Content="{Binding CurrentViewModel}" />
+            </Border>
+        </Grid>
     </Grid>
 </Window>
