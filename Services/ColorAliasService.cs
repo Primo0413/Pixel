@@ -5,10 +5,20 @@ using pixel_edit.Models;
 
 namespace pixel_edit.Services;
 
+/// <summary>
+/// 颜色别名服务，负责读取、规范化与持久化颜色别名调色板。
+/// </summary>
 public sealed class ColorAliasService : IColorAliasService
 {
+    /// <summary>
+    /// 当前内存中的调色板数据。
+    /// </summary>
     private readonly List<PaletteEntry> _palette;
 
+    /// <summary>
+    /// 初始化颜色别名服务。
+    /// 若本地配置不存在，会创建默认色板文件。
+    /// </summary>
     public ColorAliasService()
     {
         var filePath = AppPaths.ColorAliasFile;
@@ -34,8 +44,17 @@ public sealed class ColorAliasService : IColorAliasService
             .ToList();
     }
 
+    /// <summary>
+    /// 读取当前调色板。
+    /// </summary>
+    /// <returns>调色板只读集合。</returns>
     public IReadOnlyList<PaletteEntry> LoadPalette() => _palette;
 
+    /// <summary>
+    /// 为指定颜色获取或创建别名。
+    /// </summary>
+    /// <param name="hex">输入颜色十六进制值。</param>
+    /// <returns>颜色对应的别名。</returns>
     public string EnsureAlias(string hex)
     {
         var normalized = NormalizeHex(hex);
@@ -51,6 +70,11 @@ public sealed class ColorAliasService : IColorAliasService
         return next;
     }
 
+    /// <summary>
+    /// 规范化十六进制颜色字符串为 #RRGGBB 大写格式。
+    /// </summary>
+    /// <param name="hex">待规范化颜色字符串。</param>
+    /// <returns>规范化后的颜色字符串。</returns>
     private static string NormalizeHex(string hex)
     {
         if (string.IsNullOrWhiteSpace(hex))
@@ -67,6 +91,9 @@ public sealed class ColorAliasService : IColorAliasService
         return value.ToUpperInvariant();
     }
 
+    /// <summary>
+    /// 将当前调色板持久化到本地配置文件。
+    /// </summary>
     private void Persist()
     {
         var map = _palette.ToDictionary(x => x.Alias, x => x.Hex);

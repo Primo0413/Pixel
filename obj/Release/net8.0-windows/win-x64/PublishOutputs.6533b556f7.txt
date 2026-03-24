@@ -1,0 +1,2 @@
+D:\JYang\Prj\pixel_edit\bin\Release\publish-small\pixel_edit.pdb
+D:\JYang\Prj\pixel_edit\bin\Release\publish-small\pixel_edit.exe

@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\JYang\\Prj\\pixel_edit\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|d:\\jyang\\prj\\pixel_edit\\viewmodels\\editorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|solutionrelative:viewmodels\\editorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|d:\\jyang\\prj\\pixel_edit\\models\\canvasspec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|solutionrelative:models\\canvasspec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|d:\\jyang\\prj\\pixel_edit\\services\\coloraliasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|solutionrelative:services\\coloraliasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -63,10 +71,6 @@
       "RelativeMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|d:\\jyang\\prj\\pixel_edit\\models\\canvasspec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|solutionrelative:models\\canvasspec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|d:\\jyang\\prj\\pixel_edit\\models\\pixellayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B2B404AE-B0C9-14D8-FC42-8586C6E9A398}|pixel_edit.csproj|solutionrelative:models\\pixellayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -81,12 +85,25 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 80,
-          "SelectedChildIndex": 7,
+          "DockedHeight": 103,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "EditorViewModel.cs",
+              "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\ViewModels\\EditorViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\EditorViewModel.cs",
+              "ToolTip": "D:\\JYang\\Prj\\pixel_edit\\ViewModels\\EditorViewModel.cs",
+              "RelativeToolTip": "ViewModels\\EditorViewModel.cs",
+              "ViewState": "AgIAANUBAAAAAAAAAAAgwOoBAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T04:58:10.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PixelProject.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Models\\PixelProject.cs",
               "RelativeDocumentMoniker": "Models\\PixelProject.cs",
@@ -94,12 +111,11 @@
               "RelativeToolTip": "Models\\PixelProject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T08:36:09.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T08:36:09.394Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "IPixelConvertService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\IPixelConvertService.cs",
               "RelativeDocumentMoniker": "Services\\IPixelConvertService.cs",
@@ -111,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "IExportService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\IExportService.cs",
               "RelativeDocumentMoniker": "Services\\IExportService.cs",
@@ -123,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "IComposeService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\IComposeService.cs",
               "RelativeDocumentMoniker": "Services\\IComposeService.cs",
@@ -135,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ExportService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\ExportService.cs",
               "RelativeDocumentMoniker": "Services\\ExportService.cs",
@@ -147,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ComposeService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\ComposeService.cs",
               "RelativeDocumentMoniker": "Services\\ComposeService.cs",
@@ -159,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "ColorHelper.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\ColorHelper.cs",
               "RelativeDocumentMoniker": "Services\\ColorHelper.cs",
@@ -171,20 +187,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ColorAliasService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\ColorAliasService.cs",
               "RelativeDocumentMoniker": "Services\\ColorAliasService.cs",
               "ToolTip": "D:\\JYang\\Prj\\pixel_edit\\Services\\ColorAliasService.cs",
               "RelativeToolTip": "Services\\ColorAliasService.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAuwBgAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-23T08:19:56.293Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "AppPaths.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\AppPaths.cs",
               "RelativeDocumentMoniker": "Services\\AppPaths.cs",
@@ -196,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PixelConvertService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\PixelConvertService.cs",
               "RelativeDocumentMoniker": "Services\\PixelConvertService.cs",
@@ -204,12 +220,11 @@
               "RelativeToolTip": "Services\\PixelConvertService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T07:35:36.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T07:35:36.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ProjectStorageService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\ProjectStorageService.cs",
               "RelativeDocumentMoniker": "Services\\ProjectStorageService.cs",
@@ -221,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "IProjectStorageService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\IProjectStorageService.cs",
               "RelativeDocumentMoniker": "Services\\IProjectStorageService.cs",
@@ -233,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "IColorAliasService.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Services\\IColorAliasService.cs",
               "RelativeDocumentMoniker": "Services\\IColorAliasService.cs",
@@ -245,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
               "Title": "CanvasSpec.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Models\\CanvasSpec.cs",
               "RelativeDocumentMoniker": "Models\\CanvasSpec.cs",
@@ -253,11 +268,12 @@
               "RelativeToolTip": "Models\\CanvasSpec.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T07:31:55.235Z"
+              "WhenOpened": "2026-03-23T07:31:55.235Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "PixelCell.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Models\\PixelCell.cs",
               "RelativeDocumentMoniker": "Models\\PixelCell.cs",
@@ -265,12 +281,11 @@
               "RelativeToolTip": "Models\\PixelCell.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T07:31:53.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T07:31:53.288Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "PixelLayer.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\Models\\PixelLayer.cs",
               "RelativeDocumentMoniker": "Models\\PixelLayer.cs",
@@ -282,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -293,7 +308,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\JYang\\Prj\\pixel_edit\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -306,7 +321,7 @@
           ]
         },
         {
-          "DockedHeight": 75,
+          "DockedHeight": 52,
           "SelectedChildIndex": -1,
           "Children": [
             {

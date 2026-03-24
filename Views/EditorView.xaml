@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:models="clr-namespace:pixel_edit.Models"
              mc:Ignorable="d">
-    <Grid>
+    <Grid Style="{StaticResource PageRootGridStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="16" />
@@ -19,60 +19,127 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Padding="14" CornerRadius="12" Background="White" BorderBrush="#1F000000" BorderThickness="1">
+            <Border Grid.Column="0" Padding="14" Style="{StaticResource SettingsCardStyle}" IsEnabled="{Binding IsInteractionEnabled}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel>
                     <TextBlock Text="{Binding Title}" Style="{StaticResource MaterialDesignTitleLargeTextBlock}" TextWrapping="Wrap" />
 
-                    <ToggleButton IsChecked="{Binding EraserMode}" Content="橡皮模式" Margin="0,12,0,10" />
+                    <StackPanel Orientation="Horizontal" Margin="0,12,0,8" VerticalAlignment="Center">
+                        <TextBlock Text="横向像素点" VerticalAlignment="Center" Margin="0,0,10,0" />
+                        <TextBox Text="{Binding HorizontalPixelCount, UpdateSourceTrigger=PropertyChanged}"
+                                 Width="90"
+                                 VerticalContentAlignment="Center" />
+                    </StackPanel>
 
-                    <TextBlock Text="调色板" FontWeight="SemiBold" Margin="0,0,0,8" />
-                    <ListBox ItemsSource="{Binding Project.Palette}" SelectedItem="{Binding SelectedColor}" Height="560">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8" VerticalAlignment="Center">
+                        <TextBlock Text="缩放" VerticalAlignment="Center" Margin="0,0,10,0" />
+                        <Button Content="-" Width="28" Height="28" Command="{Binding ZoomOutCommand}" />
+                        <TextBlock Text="{Binding ZoomPercent, StringFormat={}{0}%}" Width="58" TextAlignment="Center" VerticalAlignment="Center" />
+                        <Button Content="+" Width="28" Height="28" Command="{Binding ZoomInCommand}" />
+                        <Button Content="重置" Margin="8,0,0,0" Command="{Binding ResetZoomCommand}" />
+                    </StackPanel>
+
+                    <Button Command="{Binding RegeneratePixelImageCommand}"
+                            Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <ProgressBar Width="24"
+                                         Height="8"
+                                         IsIndeterminate="True"
+                                         Margin="0,0,8,0"
+                                         Visibility="{Binding IsConverting, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <TextBlock Text="{Binding RegenerateButtonText}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <ToggleButton IsChecked="{Binding ShowOriginalReference}" Content="显示原图参考" Margin="0,0,0,8" />
+
+                    <ToggleButton IsChecked="{Binding EraserMode}" Content="橡皮模式" Margin="0,0,0,10" />
+
+                    <TextBlock Text="已用颜色" FontWeight="SemiBold" Margin="0,0,0,8" />
+                    <TextBlock Text="{Binding UsedColorCount, StringFormat=共 {0} 种颜色}" Margin="0,0,0,8" Opacity="0.75" />
+                    <ListBox ItemsSource="{Binding ColorUsageStats}" Height="480">
                         <ListBox.ItemTemplate>
-                            <DataTemplate DataType="{x:Type models:PaletteEntry}">
+                            <DataTemplate>
                                 <DockPanel Margin="0,3">
                                     <Border Width="20" Height="20" CornerRadius="3" BorderBrush="#22000000" BorderThickness="1" Margin="0,0,8,0"
                                             Background="{Binding Hex, Converter={StaticResource HexToBrushConverter}}" />
-                                    <TextBlock Text="{Binding Alias}" Width="40" />
-                                    <TextBlock Text="{Binding Hex}" Opacity="0.8" />
+                                    <TextBlock Text="{Binding Alias}" Width="52" />
+                                    <TextBlock Text="{Binding Hex}" Opacity="0.8" Width="88" />
+                                    <TextBlock Text="{Binding Count, StringFormat={}{0} px}" Opacity="0.82" />
                                 </DockPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </StackPanel>
+                </ScrollViewer>
             </Border>
 
-            <Border Grid.Column="2" Background="#0A000000" CornerRadius="12" Padding="12">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Cells}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <UniformGrid Columns="{Binding DataContext.Project.Canvas.Width, RelativeSource={RelativeSource AncestorType=UserControl}}" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="{x:Type models:PixelCell}">
-                                <Border Width="12" Height="12" Margin="0" BorderThickness="0.5" BorderBrush="#22000000" Background="{Binding Brush}">
-                                    <Border.InputBindings>
-                                        <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.PaintCellCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" />
-                                    </Border.InputBindings>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
+            <Border Grid.Column="2" Style="{StaticResource SettingsCardStyle}" Padding="12">
+                <Grid>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid Width="{Binding PixelRenderWidth}"
+                              Height="{Binding PixelRenderHeight}">
+                            <Grid.LayoutTransform>
+                                <ScaleTransform ScaleX="{Binding CanvasScale}" ScaleY="{Binding CanvasScale}" />
+                            </Grid.LayoutTransform>
+                            <Image Source="{Binding OriginalImageSource}"
+                                   Width="{Binding PixelRenderWidth}"
+                                   Height="{Binding PixelRenderHeight}"
+                                   Stretch="Fill"
+                                   Opacity="{Binding OriginalReferenceOpacity}" />
+
+                            <ItemsControl ItemsSource="{Binding Cells}" Opacity="{Binding PixelLayerOpacity}" IsHitTestVisible="{Binding IsInteractionEnabled}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Columns="{Binding DataContext.Project.Canvas.Width, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type models:PixelCell}">
+                                        <Border Width="{Binding DataContext.PixelCellSize, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                Height="{Binding DataContext.PixelCellSize, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                Margin="0"
+                                                BorderThickness="{Binding DataContext.PixelGridLineThickness, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                BorderBrush="#22000000"
+                                                Background="{Binding Brush}"
+                                                MouseLeftButtonDown="PixelCell_MouseLeftButtonDown"
+                                                MouseEnter="PixelCell_MouseEnter"
+                                                MouseLeftButtonUp="PixelCell_MouseLeftButtonUp"
+                                                MouseLeave="PixelCell_MouseLeave">
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </ScrollViewer>
+
+                    <Border Background="#CCFFFFFF"
+                            BorderBrush="#FFE0E0E0"
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Padding="18,10"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Visibility="{Binding IsConverting, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <TextBlock Text="图片生成中..."
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Foreground="#FF1F2937" />
+                    </Border>
+                </Grid>
             </Border>
         </Grid>
 
         <Border Grid.Row="2"
+                Style="{StaticResource SettingsCardStyle}"
                 Background="{StaticResource ActionBarBackgroundBrush}"
-                CornerRadius="12"
-                Padding="12">
+                Padding="12"
+                IsEnabled="{Binding IsInteractionEnabled}">
             <DockPanel LastChildFill="False">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
                     <Button Content="返回首页" Command="{Binding BackHomeCommand}" Style="{StaticResource ActionBarButtonStyle}" />
                     <Button Content="导入并转换图片" Command="{Binding ImportAndConvertImageCommand}" Style="{StaticResource ActionBarButtonStyle}" />
-                    <Button Content="加载工程" Command="{Binding LoadProjectCommand}" Style="{StaticResource ActionBarButtonStyle}" />
-                    <Button Content="删除选中像素" Command="{Binding DeleteSelectedPixelCommand}" Style="{StaticResource ActionBarButtonStyle}" />
+                    <Button Content="退回擦除" Command="{Binding UndoEraseCommand}" IsEnabled="{Binding CanUndoErase}" Style="{StaticResource ActionBarButtonStyle}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">

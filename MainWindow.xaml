@@ -1,4 +1,4 @@
-﻿<Window x:Class="pixel_edit.MainWindow"
+<Window x:Class="pixel_edit.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,21 +11,22 @@
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource AppBackgroundBrush}"
         TextElement.FontSize="14">
-    <Grid>
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="{Binding SidebarWidth}" />
+            <ColumnDefinition Width="14" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0"
+                Style="{StaticResource SettingsCardStyle}"
                 Background="{StaticResource SidebarBackgroundBrush}"
                 BorderBrush="{StaticResource SidebarBorderBrush}"
-                BorderThickness="0,0,1,0"
                 Padding="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="12" />
+                    <RowDefinition Height="10" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -37,7 +38,7 @@
                         Style="{StaticResource SidebarActionButtonStyle}"
                         Command="{Binding ToggleSidebarCommand}"
                         ToolTip="收缩/展开侧边栏"
-                        Content="≡" />
+                        Content="☰" />
 
                 <Button Grid.Row="2"
                         Style="{StaticResource SidebarNavButtonStyle}"
@@ -45,7 +46,11 @@
                         Command="{Binding GoConvertImageCommand}"
                         ToolTip="加载图片并转换">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="IMG" FontSize="13" FontWeight="SemiBold" />
+                        <Path Width="12"
+                              Height="12"
+                              Margin="0,0,2,0"
+                              Fill="#FF5B5B5B"
+                              Data="M2,2 L10,2 L10,10 L2,10 Z M3,3 L9,3 L9,9 L3,9 Z" />
                         <TextBlock Text="加载图片并转换"
                                    Margin="8,0,0,0"
                                    Visibility="{Binding IsSidebarExpanded, Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -58,7 +63,11 @@
                         Command="{Binding GoBlankEditorCommand}"
                         ToolTip="创建白板绘制">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="PIX" FontSize="13" FontWeight="SemiBold" />
+                        <Path Width="12"
+                              Height="12"
+                              Margin="0,0,2,0"
+                              Fill="#FF5B5B5B"
+                              Data="M2,2 L10,2 L10,10 L2,10 Z M4,4 L8,4 L8,8 L4,8 Z" />
                         <TextBlock Text="创建白板绘制"
                                    Margin="8,0,0,0"
                                    Visibility="{Binding IsSidebarExpanded, Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -71,7 +80,11 @@
                         Command="{Binding GoComposeCommand}"
                         ToolTip="加载并拼接/堆叠">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="CMP" FontSize="13" FontWeight="SemiBold" />
+                        <Path Width="12"
+                              Height="12"
+                              Margin="0,0,2,0"
+                              Fill="#FF5B5B5B"
+                              Data="M1,3 L6,3 L6,8 L1,8 Z M6,4 L11,4 L11,9 L6,9 Z" />
                         <TextBlock Text="加载并拼接/堆叠"
                                    Margin="8,0,0,0"
                                    Visibility="{Binding IsSidebarExpanded, Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -84,7 +97,11 @@
                         Command="{Binding GoHomeCommand}"
                         ToolTip="回到首页">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="HOME" FontSize="13" FontWeight="SemiBold" />
+                        <Path Width="12"
+                              Height="12"
+                              Margin="0,0,2,0"
+                              Fill="#FF5B5B5B"
+                              Data="M1,6 L6,2 L11,6 L10,6 L10,10 L7,10 L7,7 L5,7 L5,10 L2,10 L2,6 Z" />
                         <TextBlock Text="首页"
                                    Margin="8,0,0,0"
                                    Visibility="{Binding IsSidebarExpanded, Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -93,24 +110,34 @@
             </Grid>
         </Border>
 
-        <Grid Grid.Column="1" Margin="20">
+        <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="12" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Border Background="{StaticResource HeaderBackgroundBrush}"
-                    CornerRadius="14"
-                    Padding="18"
-                    Margin="0,0,0,16">
-                <TextBlock Text="Pixel Edit"
-                           Style="{StaticResource MaterialDesignHeadlineSmallTextBlock}" />
+            <Border Grid.Row="0"
+                    Style="{StaticResource SettingsCardStyle}"
+                    Background="{StaticResource HeaderBackgroundBrush}"
+                    Padding="16,14">
+                <StackPanel>
+                    <TextBlock Text="Pixel Edit"
+                               FontSize="28"
+                               FontWeight="SemiBold"
+                               Foreground="#FF1B1B1B" />
+                    <TextBlock Text="{Binding PageSubtitle}"
+                               Margin="0,4,0,0"
+                               FontSize="13"
+                               Foreground="#FF666666"
+                               TextWrapping="Wrap" />
+                </StackPanel>
             </Border>
 
-            <Border Grid.Row="1"
+            <Border Grid.Row="2"
+                    Style="{StaticResource SettingsCardStyle}"
                     Background="{StaticResource ContentBackgroundBrush}"
-                    CornerRadius="16"
-                    Padding="18">
+                    Padding="16">
                 <ContentControl Content="{Binding CurrentViewModel}" />
             </Border>
         </Grid>

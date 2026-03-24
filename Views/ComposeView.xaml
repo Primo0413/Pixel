@@ -4,23 +4,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d">
-    <Grid>
+    <Grid Style="{StaticResource PageRootGridStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="16" />
+            <RowDefinition Height="12" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="350" />
-                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="12" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Padding="14" CornerRadius="12" Background="White" BorderBrush="#1F000000" BorderThickness="1">
+            <Border Grid.Column="0" Style="{StaticResource SettingsCardStyle}" Padding="14">
                 <StackPanel>
-                    <TextBlock Text="拼接 / 堆叠" Style="{StaticResource MaterialDesignHeadlineSmallTextBlock}" />
+                    <TextBlock Text="拼接 / 堆叠" FontSize="22" FontWeight="SemiBold" Foreground="#FF1B1B1B" />
 
                     <TextBlock Text="组合模式" FontWeight="SemiBold" Margin="0,12,0,4" />
                     <ComboBox ItemsSource="{Binding Modes}" SelectedItem="{Binding SelectedMode}" />
@@ -30,14 +30,14 @@
                 </StackPanel>
             </Border>
 
-            <Border Grid.Column="2" Padding="14" CornerRadius="12" Background="#0A000000">
+            <Border Grid.Column="2" Style="{StaticResource SettingsCardStyle}" Padding="14">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="组合结果预览信息" Style="{StaticResource MaterialDesignTitleLargeTextBlock}" Margin="0,0,0,8" />
+                    <TextBlock Text="组合结果预览信息" FontSize="20" FontWeight="SemiBold" Margin="0,0,0,8" />
 
                     <StackPanel Grid.Row="1">
                         <TextBlock Text="{Binding ComposedProject.Name, StringFormat=项目：{0}}" Margin="0,0,0,6" />
@@ -50,8 +50,8 @@
         </Grid>
 
         <Border Grid.Row="2"
+                Style="{StaticResource SettingsCardStyle}"
                 Background="{StaticResource ActionBarBackgroundBrush}"
-                CornerRadius="12"
                 Padding="12">
             <DockPanel LastChildFill="False">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">

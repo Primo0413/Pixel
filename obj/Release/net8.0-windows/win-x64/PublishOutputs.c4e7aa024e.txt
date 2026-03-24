@@ -1,0 +1,2 @@
+D:\JYang\Prj\pixel_edit\bin\Release\net8.0-windows\win-x64\publish\pixel_edit.pdb
+D:\JYang\Prj\pixel_edit\bin\Release\net8.0-windows\win-x64\publish\pixel_edit.exe

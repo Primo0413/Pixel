@@ -3,8 +3,20 @@ using pixel_edit.Models;
 
 namespace pixel_edit.Services;
 
+/// <summary>
+/// 像素工程组合服务，实现拼接与堆叠逻辑。
+/// </summary>
 public sealed class ComposeService : IComposeService
 {
+    /// <summary>
+    /// 将多个像素工程按指定模式组合为新工程。
+    /// </summary>
+    /// <param name="projects">输入工程集合。</param>
+    /// <param name="mode">组合模式。</param>
+    /// <param name="pixelSize">输出工程像素显示尺寸。</param>
+    /// <param name="name">输出工程名称。</param>
+    /// <returns>组合后的像素工程。</returns>
+    /// <exception cref="InvalidOperationException">当输入工程为空时抛出。</exception>
     public PixelProject Compose(IReadOnlyList<PixelProject> projects, ComposeMode mode, int pixelSize, string name)
     {
         if (projects.Count == 0)
@@ -70,6 +82,11 @@ public sealed class ComposeService : IComposeService
         };
     }
 
+    /// <summary>
+    /// 合并多个工程的调色板，按颜色值去重。
+    /// </summary>
+    /// <param name="projects">输入工程集合。</param>
+    /// <returns>合并后的调色板。</returns>
     private static List<PaletteEntry> BuildMergedPalette(IReadOnlyList<PixelProject> projects)
     {
         var merged = new List<PaletteEntry>();
@@ -93,6 +110,12 @@ public sealed class ComposeService : IComposeService
         return merged;
     }
 
+    /// <summary>
+    /// 根据组合模式计算输出画布尺寸及各工程放置坐标。
+    /// </summary>
+    /// <param name="projects">输入工程集合。</param>
+    /// <param name="mode">组合模式。</param>
+    /// <returns>输出宽高及放置信息。</returns>
     private static (int width, int height, List<(PixelProject project, string path, int x, int y, int zIndex)> placements) BuildLayout(IReadOnlyList<PixelProject> projects, ComposeMode mode)
     {
         var placements = new List<(PixelProject, string, int, int, int)>();
